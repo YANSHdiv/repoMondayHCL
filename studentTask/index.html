@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6fb">
+  <title>StudyFlow — Student Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#dashboard" data-view="dashboard" aria-label="StudyFlow dashboard">
+        <span class="brand-mark" aria-hidden="true">S</span><span class="brand-copy"><strong>studyflow</strong><small>STUDENT SPACE</small></span>
+      </a>
+      <div class="nav-label">MENU</div>
+      <nav class="primary-nav">
+        <button class="nav-item active" data-view="dashboard"><span aria-hidden="true">◫</span>Dashboard</button>
+        <button class="nav-item" data-view="tasks"><span aria-hidden="true">☷</span>My tasks<span class="nav-count" id="nav-task-count">0</span></button>
+        <button class="nav-item" data-view="classes"><span aria-hidden="true">▦</span>My classes</button>
+        <button class="nav-item" data-view="attendance"><span aria-hidden="true">◷</span>Attendance</button>
+        <button class="nav-item" data-view="calendar"><span aria-hidden="true">▣</span>Calendar</button>
+        <button class="nav-item" data-view="completed"><span aria-hidden="true">✓</span>Completed</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-note"><span class="note-icon" aria-hidden="true">✦</span><strong>Small steps, big wins.</strong><p>Keep showing up for the goals you set.</p></div>
+        <button class="nav-item" data-view="settings"><span aria-hidden="true">⚙</span>Settings</button>
+        <div class="user-mini"><div class="avatar" id="sidebar-avatar">A</div><div class="user-mini-copy"><strong id="sidebar-name">Alex Morgan</strong><small>Student</small></div><button class="icon-button" data-view="settings" aria-label="Open settings">•••</button></div>
+      </div>
+    </aside>
+    <div class="sidebar-scrim" id="sidebar-scrim"></div>
+    <main class="main-area">
+      <header class="topbar">
+        <button class="icon-button menu-toggle" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        <div class="breadcrumb"><span>Workspace</span><span aria-hidden="true">/</span><strong id="breadcrumb-current">Dashboard</strong></div>
+        <div class="topbar-actions"><span class="today-label" id="today-label"></span><button class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark theme"><span aria-hidden="true">☼</span></button><button class="avatar top-avatar" id="top-avatar" data-view="settings" aria-label="Open profile settings">A</button></div>
+      </header>
+      <div class="page-content" id="page-content" tabindex="-1"></div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog class="modal" id="task-modal" aria-labelledby="task-modal-title">
+    <form id="task-form" class="modal-form">
+      <div class="modal-heading"><div><p class="eyebrow">YOUR WORK</p><h2 id="task-modal-title">Add a task</h2></div><button type="button" class="icon-button" data-close-modal aria-label="Close">×</button></div>
+      <input type="hidden" name="id">
+      <label>Task title<input name="title" maxlength="100" required placeholder="e.g. Finish research paper"></label>
+      <label>Description<textarea name="description" maxlength="500" rows="3" placeholder="Add a few details..."></textarea></label>
+      <div class="form-grid">
+        <label>Subject<select name="subjectId" required></select></label>
+        <label>Due date<input name="dueDate" type="date" required></label>
+        <label>Priority<select name="priority"><option>Medium</option><option>High</option><option>Low</option></select></label>
+        <label>Work type<select name="workType"><option>Assignment</option><option>Homework</option><option>Lab</option><option>Project</option><option>Quiz</option><option>Revision</option><option>Other</option></select></label>
+      </div>
+      <div class="modal-actions"><button type="button" class="button button-quiet" data-close-modal>Cancel</button><button class="button button-primary" type="submit">Save task</button></div>
+    </form>
+  </dialog>
+  <dialog class="modal" id="subject-modal" aria-labelledby="subject-modal-title">
+    <form id="subject-form" class="modal-form">
+      <div class="modal-heading"><div><p class="eyebrow">YOUR CLASSES</p><h2 id="subject-modal-title">Add a subject</h2></div><button type="button" class="icon-button" data-close-modal aria-label="Close">×</button></div>
+      <input type="hidden" name="id">
+      <div class="form-grid">
+        <label>Subject name<input name="name" maxlength="70" required placeholder="e.g. Data Structures"></label>
+        <label>Subject code<input name="code" maxlength="20" required placeholder="e.g. CS204"></label>
+        <label>Teacher<input name="teacher" maxlength="70" required placeholder="e.g. Dr. Jordan Lee"></label>
+        <label>Schedule<input name="schedule" maxlength="70" required placeholder="e.g. Mon, Wed · 10:00 AM"></label>
+      </div>
+      <div class="modal-actions"><button type="button" class="button button-quiet" data-close-modal>Cancel</button><button class="button button-primary" type="submit">Save subject</button></div>
+    </form>
+  </dialog>
+</body>
+</html>
