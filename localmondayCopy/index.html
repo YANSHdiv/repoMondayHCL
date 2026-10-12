@@ -1,25 +1,105 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simple Sum</title>
-</head>
-<body>
-  <h2>Simple Sum</h2>
-  <input type="number" id="num1" value="5" />
-  +
-  <input type="number" id="num2" value="10" />
-  <button onclick="calculateSum()">Calculate</button>
-  <p id="result">Result: 15</p>
+/* General styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+}
 
-  <script>
-    function calculateSum() {
-      const num1 = Number(document.getElementById('num1').value);
-      const num2 = Number(document.getElementById('num2').value);
-      const sum = num1 + num2;
-      document.getElementById('result').textContent = 'Result: ' + sum;
+p {
+    margin: 20px;
+    font-size: 18px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Navigation menu */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+}
+
+ul li {
+    float: left;
+}
+
+ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    background-color: #111111;
+}
+
+/* Table styling */
+table {
+    width: 80%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Table header */
+th {
+    background-color: #007bff;
+    color: white;
+    padding: 14px;
+    text-align: center;
+    border: 1px solid #dddddd;
+}
+
+/* Table cells */
+td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #dddddd;
+    font-size: 15px;
+}
+
+/* Alternate row colors */
+tbody tr:nth-child(even) {
+    background-color: #f2f6fc;
+}
+
+/* Hover effect */
+tbody tr:hover {
+    background-color: #dceeff;
+}
+
+/* Highlight output column */
+.output {
+    color: #198754;
+    font-weight: bold;
+}
+
+/* Responsive table */
+@media (max-width: 600px) {
+    table {
+        width: 96%;
     }
-  </script>
-</body>
-</html>
+
+    th,
+    td {
+        padding: 8px 5px;
+        font-size: 12px;
+    }
+}
