@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Sum</title>
+</head>
+<body>
+  <h2>Simple Sum</h2>
+  <input type="number" id="num1" value="5" />
+  +
+  <input type="number" id="num2" value="10" />
+  <button onclick="calculateSum()">Calculate</button>
+  <p id="result">Result: 15</p>
+
+  <script>
+    function calculateSum() {
+      const num1 = Number(document.getElementById('num1').value);
+      const num2 = Number(document.getElementById('num2').value);
+      const sum = num1 + num2;
+      document.getElementById('result').textContent = 'Result: ' + sum;
+    }
+  </script>
+</body>
+</html>
